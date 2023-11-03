@@ -10,9 +10,16 @@ public class SQLManage {
     Connection con;
 
     SQLManage() throws SQLException {
-        String usr = "u654709561_mayank";
-        String pass = "Ayushcha12@";
-        String url = "jdbc:mysql://localhost:3306/atm";
+        String usr = "admin";
+        String pass = "AVNS_5PgbER75FXAzWG0pi7p";
+        String url = "jdbc:mysql://db-mysql-blr1-27214-do-user-12800281-0.c.db.ondigitalocean.com:25060/atm";
+        // Load the MySQL JDBC driver
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new SQLException("MySQL JDBC Driver not found.");
+        }
+
         con = DriverManager.getConnection(url, usr, pass);
     }
 
